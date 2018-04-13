@@ -27,8 +27,12 @@
     <!--  -->
     <div class="holder">
 
-      <form @submit.prevent="addSkill">  <!-- the modifier .prevent is basically .prevetDefault() -->
-        <input type="text" placeholder="Enter a skill..." v-model="skill">
+      <!-- the modifier .prevent is basically .prevetDefault() -->
+      <form @submit.prevent="addSkill">
+        <!-- The input must be at least 5 characters The input must have a name when using v-validate -->
+        <input type="text" placeholder="Enter a skill..." v-model="skill" v-validate="'min:5'" name="skill">
+        <!-- A vee-validate error message if the condition is not met. The 'errors' object comes from vee-validate. -->
+        <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
       </form>
 
       <ul>
@@ -81,7 +85,8 @@ export default {
   .alert {
     background-color: lightblue;
     width: 100%;
-    height: 30px; }
+    padding: 10px;
+    box-sizing: border-box; }
   .another-class {
     border: 2px dashed grey; 
     box-sizing: border-box; }
