@@ -49,7 +49,11 @@
         <!-- <li v-for="(data, index) in skills" :key="index">{{ data.skill }}</li> -->
         <!-- transition animations for elements in a group -->
         <transition-group name="list" enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
-          <li v-for="(data, index) in skills" :key="index">{{ data.skill }}</li>
+          <!-- <li v-for="(data, index) in skills" :key="index">{{ data.skill }}</li> -->
+          <li v-for="(data, index) in skills" :key="index">
+            {{ data.skill }}
+            <i class="fa fa-minus-circle" v-on:click="remove(index)"></i>
+          </li>
         </transition-group>
       </ul>
 
@@ -82,8 +86,8 @@ export default {
       skill: ''
     }
   },
-  methods: {
-    addSkill: function() {
+  methods: {  // The methods can't be arrow functions
+    addSkill () {
       // This prevents the skill from being added if the input is not valid
       this.$validator.validateAll().then(result => {
         if (result) {
@@ -91,6 +95,9 @@ export default {
           this.skill = '';
         } else console.log('Not valid');
       })
+    },
+    remove (id) {
+      this.skills.splice(id, 1);
     }
   }
 }
@@ -111,6 +118,7 @@ export default {
 
   /* ------------------------ */
   @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1"; /* animation library */
+  @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"; /* font awesome */
 
   .holder {
     margin-top: 20px;
@@ -153,8 +161,12 @@ export default {
     animation: bounce-in .5s reverse;
   }
   @keyframes bounce-in {
-  0% { transform: scale(0); }
-  50% { transform: scale(1.5); }
-  100% { transform: scale(1); }
-}
+    0% { transform: scale(0); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+  }
+  li i {
+    float: right;
+    cursor: pointer;
+  }
 </style>
