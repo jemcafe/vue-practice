@@ -138,7 +138,7 @@ export default {
   .alert-in-enter-active {
     animation: bounce-in .5s;
   }
-  .alert-in-enter-active {
+  .alert-in-leave-active {
     animation: bounce-in .5s reverse;
   }
   @keyframes bounce-in {
