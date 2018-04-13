@@ -70,8 +70,13 @@ export default {
   },
   methods: {
     addSkill: function() {
-      this.skills.push({ skill: this.skill });
-      this.skill = '';
+      // This prevents the skill from being added if the input is not valid
+      this.$validator.validateAll().then(result => {
+        if (result) {
+          this.skills.push({ skill: this.skill });
+          this.skill = '';
+        } else console.log('Not valid');
+      })
     }
   }
 }
