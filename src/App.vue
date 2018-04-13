@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <Skills/>
+    <!-- <Skills/> -->
+    <nav>
+        <!-- Route links -->
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
+    </nav>
+
+    <!-- This is where the routes will display -->
+    <router-view />
   </div>
 </template>
 
@@ -41,5 +49,15 @@ body, html {
 }
 #app {
     width: 50%;
+}
+
+nav a {
+  padding: 10px;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 3px;
+  color: rgb(0, 110, 255);
+  font-weight: bold;
+  margin-right: 15px;
 }
 </style>
