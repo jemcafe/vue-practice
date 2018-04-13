@@ -1,6 +1,6 @@
 ## Vue practice
 
-This is not meant to be a pretty looking app. I'm just understanding how it works and what I can do with it.
+This is not meant to be a pretty looking app. The goal of this is understand how Vue works and what I can do with it, so I can use it for a later project.
 
 ## Resources
 * https://v1.vuejs.org/guide/
