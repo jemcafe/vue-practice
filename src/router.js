@@ -13,7 +13,7 @@ export default new Router({
             component: Skills
         },
         {
-            path: '/about',
+            path: '/about/:name',
             names: 'about',
             component: About
         },
