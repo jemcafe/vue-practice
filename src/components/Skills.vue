@@ -17,6 +17,9 @@
 
       <!-- class binding  (The classes are binded and the elements are styled if property values are true)-->
       <div v-bind:class="{ alert: showAlert, 'another-class': showClass }"></div>
+      <div v-bind:class="alertObject"></div>
+
+      <!--  -->
     </div>
   </div>
 </template>
@@ -33,7 +36,11 @@ export default {
         { "skill": "Front End Developer" },
       ],
       showAlert: true,
-      showClass: true
+      showClass: true,
+      alertObject: {
+        alert: true,
+        'another-class': true
+      }
     }
   }
 }
