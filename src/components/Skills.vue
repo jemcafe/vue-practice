@@ -33,6 +33,10 @@
         <input type="text" placeholder="Enter a skill..." v-model="skill" v-validate="'min:5'" name="skill">
         <!-- A vee-validate error message if the condition is not met. The 'errors' object comes from vee-validate. -->
         <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
+        <!-- transition -->
+        <transition name="alert-in">
+          <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
+        </transition>
       </form>
 
       <ul>
@@ -130,4 +134,16 @@ export default {
     background-color: #323333;
     color: #687F7F;
   }
+
+  .alert-in-enter-active {
+    animation: bounce-in .5s;
+  }
+  .alert-in-enter-active {
+    animation: bounce-in .5s reverse;
+  }
+  @keyframes bounce-in {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
 </style>
