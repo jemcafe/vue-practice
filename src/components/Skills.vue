@@ -14,6 +14,9 @@
       <!-- if / else -->
       <p v-if="skills.length >= 1">You have more than 1 skill</p>
       <p v-else>You have less than or equal to 1 skill</p>
+
+      <!-- class binding  (The classes are binded and the elements are styled if property values are true)-->
+      <div v-bind:class="{ alert: showAlert, 'another-class': showClass }"></div>
     </div>
   </div>
 </template>
@@ -28,7 +31,9 @@ export default {
       skills: [
         { "skill": "Vue.js" },
         { "skill": "Front End Developer" },
-      ]
+      ],
+      showAlert: true,
+      showClass: true
     }
   }
 }
@@ -36,18 +41,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+/* <style src="./Skills.css" scoped> */  /* Importing css */
+  .alert {
+    background-color: lightblue;
+    width: 100%;
+    height: 30px;
+  }
+  .another-class {
+    border: 2px dashed grey;
+  }
 </style>
