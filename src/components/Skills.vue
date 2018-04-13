@@ -33,7 +33,7 @@
         <input type="text" placeholder="Enter a skill..." v-model="skill" v-validate="'min:5'" name="skill">
         <!-- A vee-validate error message if the condition is not met. The 'errors' object comes from vee-validate. -->
         <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
-        <!-- transition -->
+        <!-- transition  (transition is a custom component wrapper. It's great for entering and leaving transitions) -->
         <transition name="alert-in">
           <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
         </transition>
