@@ -2,7 +2,7 @@
   <div class="hello">
     <!-- {{}} interpolation -->
     {{ name }}
-    <!-- v-bind:disabled disables the button -->
+    <!-- v-bind:disabled  (Disables the button) -->
     <button v-bind:disabled="btnState">Change Name</button>
 
     <div class="holder">
@@ -19,7 +19,11 @@
       <div v-bind:class="{ alert: showAlert, 'another-class': showClass }"></div>
       <div v-bind:class="alertObject"></div>
 
+      <!-- style binding -->
+      <div v-bind:style="{ backgroundColor: bgColor, width: bgWidth, height: bgHeight }"></div>
+
       <!--  -->
+      <p>The skills you posses</p>
     </div>
   </div>
 </template>
@@ -40,7 +44,10 @@ export default {
       alertObject: {
         alert: true,
         'another-class': true
-      }
+      },
+      bgColor: 'lightblue',
+      bgWidth: '100%',
+      bgHeight: '30px'
     }
   }
 }
